@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<Fincas>
+
+<table class="table">
+    
+    <a asp-action ="Create" class="btn btn-outline-primary btn-sm">Crear Nuevo</a>
+    <hr />
+    <h5> Listado de Fincas </h5>
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Id)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Ubicacion)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Hectareas)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Descripcion)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Ubicacion)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Hectareas)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">Editar</a>
+
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">Detalles</a>
+                    
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
